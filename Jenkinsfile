@@ -3,12 +3,13 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub') // Ensure 'dockerhub-id' matches your Docker Hub credentials ID in Jenkins
+        GITHUB_CREDENTIALS = credentials('github') // Ensure 'github-token-id' matches your GitHub credentials ID in Jenkins
     }
 
     stages {
         stage('Clone Repository') {
             steps {
-                git credentialsId: 'github', url: 'https://github.com/lab-testt/my-node-app.git'
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/lab-testt/my-node-app.git'
             }
         }
 
@@ -42,3 +43,26 @@ pipeline {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
